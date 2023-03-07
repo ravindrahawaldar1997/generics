@@ -1,5 +1,7 @@
 package com.bridgelabz.generics;
 
+import java.util.Arrays;
+
 public class MaxUsingGenerics<T extends Comparable> {
     T a, b, c;
 
@@ -19,7 +21,10 @@ public class MaxUsingGenerics<T extends Comparable> {
         }
         return maximum;
     }
-
+    public static <T> T getMaximumMoreThanThree(T valueOne, T... args) {
+        Arrays.sort(args);
+        return args[args.length-1];
+    }
     public static void main(String[] args) {
         Integer a = 10, b = 60, c = 20;
         System.out.println("Maximum Integer is " + new MaxUsingGenerics(a, b, c).getMaximum(a, b, c));
@@ -27,6 +32,7 @@ public class MaxUsingGenerics<T extends Comparable> {
         System.out.println("Maximum Float is " + new MaxUsingGenerics(d, e, f).getMaximum(d, e, f));
         String g = "Apple", h = "Peach", i = "Banana";
         System.out.println("Maximum String is " + new MaxUsingGenerics(g, h, i).getMaximum(g, h, i));
+        System.out.println("Maximum For More Than Three " + MaxUsingGenerics.getMaximumMoreThanThree(30, 40, 60, 20, 10));
     }
 }
 
