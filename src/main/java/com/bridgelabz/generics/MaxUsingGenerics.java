@@ -12,9 +12,22 @@ public class MaxUsingGenerics {
         return maximum;
     }
 
+    public Float getMaxFloat(Float d, Float e, Float f) {
+        Float maximum = d;
+        if (e.compareTo(d) > 0) {
+            maximum = e;
+        }
+        if(f.compareTo(e) > 0){
+            maximum = f;
+        }
+        return maximum;
+    }
+
     public static void main(String[] args) {
         Integer a = 10, b = 60, c = 20;
         System.out.println("Maximum Integer is " + new MaxUsingGenerics().getMaxInteger(a, b, c));
+        Float d = 50.6f, e = 30.6f, f = 94.9f;
+        System.out.println("Maximum Float is " + new MaxUsingGenerics().getMaxFloat(d, e, f));
     }
 }
 
